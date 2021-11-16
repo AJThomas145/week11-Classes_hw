@@ -10,24 +10,25 @@ public class LibraryTest {
     private Book book;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         library = new Library();
         book = new Book("How to code", "Zsolt", "Coding");
+
     }
 
     @Test
-    public void addBookToLibrary(){
+    public void addBookToLibrary() {
         library.addBook(book);
         assertEquals(1, library.countBooks());
     }
 
     @Test
-    public void canBookBeAddedToLibrary(){
+    public void canBookBeAddedToLibrary() {
         assertEquals(true, library.freeSpaceInLibrary());
     }
 
     @Test
-    public void BookCantBeAddedToLibrary(){
+    public void BookCantBeAddedToLibrary() {
         library.addBook(book);
         library.addBook(book);
         library.addBook(book);
@@ -38,7 +39,7 @@ public class LibraryTest {
     }
 
     @Test
-    public void capacityInLibraryToAddBook(){
+    public void capacityInLibraryToAddBook() {
         library.addBook(book);
         library.addBook(book);
         library.addBook(book);
@@ -47,7 +48,7 @@ public class LibraryTest {
     }
 
     @Test
-    public void noCapacityInLibraryToAddBook(){
+    public void noCapacityInLibraryToAddBook() {
         library.addBook(book);
         library.addBook(book);
         library.addBook(book);
@@ -58,5 +59,11 @@ public class LibraryTest {
 
     }
 
+    @Test
+    public void removeBookFromLibrary() {
+        library.addBook(book);
+        library.removeBook();
+        assertEquals(0, library.countBooks());
 
+    }
 }
